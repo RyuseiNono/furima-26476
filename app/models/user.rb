@@ -18,8 +18,8 @@ class User < ApplicationRecord
       validates :last_name_kana
     end
 
-    with_options format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: '英字と数字の両方を含めて設定してください' } do
-    validates :password
+    with_options format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: '英字と数字の両方を含めて設定してください' } do
+      validates :password
     end
   end
 end

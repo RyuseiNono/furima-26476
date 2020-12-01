@@ -12,7 +12,7 @@
   <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
   <%# render 'shared/error_messages', model: f.object %>
   <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-
+<%= render 'devise/shared/error_messages', resource: @user %>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">ニックネーム</label>
@@ -64,7 +64,6 @@
     <div class='form-text-wrap'>
       <label class="form-text">お名前カナ(全角)</label>
       <span class="indispensable">必須</span>
-      <%= render 'shared/error_messages', model: @user %>
     </div>
     <div class='input-name-wrap'>
       <%= f.text_area :first_name_kana, class:"input-name", id:"last-name-kana", placeholder:"例) ヤマダ" %>

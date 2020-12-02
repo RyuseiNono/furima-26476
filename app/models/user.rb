@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname
-    validates :birthday
 
     with_options format: { with: /\A[ぁ-んァ-ン一-龥々]+\z/, message: '全角文字を使用してください' } do
       validates :first_name
@@ -21,5 +20,7 @@ class User < ApplicationRecord
     with_options format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: '英字と数字の両方を含めて設定してください' } do
       validates :password
     end
+
+    validates :birthday
   end
 end

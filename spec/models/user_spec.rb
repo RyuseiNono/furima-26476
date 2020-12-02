@@ -9,15 +9,6 @@ describe User do
       it 'nickname、email、passwordとpassword_confirmation、first_name、last_name、first_name_kana、last_name_kana、birthdayが存在すれば登録できる' do
         expect(@user).to be_valid
       end
-      it 'nicknameが6文字以下で登録できる' do
-        @user.nickname = 'aaaaaa'
-        expect(@user).to be_valid
-      end
-      it 'passwordが6文字以上であれば登録できる' do
-        @user.password = 'abc123'
-        @user.password_confirmation = @user.password
-        expect(@user).to be_valid
-      end
     end
 
     context '新規登録がうまくいかないとき' do
@@ -69,6 +60,12 @@ describe User do
       it 'passwordが英字のみでは登録できない' do
         @user.password = 'abcdef'
         @user.password_confirmation = 'abcdef'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Password 英字と数字の両方を含めて設定してください')
+      end
+      it 'passwordが全角では登録できない' do
+        @user.password = 'あいうえおか'
+        @user.password_confirmation = 'あいうえおか'
         @user.valid?
         expect(@user.errors.full_messages).to include('Password 英字と数字の両方を含めて設定してください')
       end

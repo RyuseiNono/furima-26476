@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   has_one_attached :image
 
-  # アクティブハッシュのあそしえーしょんを定義
+  # アクティブハッシュのアソシエーションを定義
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :status
   belongs_to :category
@@ -11,6 +11,7 @@ class Item < ApplicationRecord
 
   #空の投稿を保存できないようにする
   with_options presence: true do
+    validates :image
     validates :name
     validates :information
 

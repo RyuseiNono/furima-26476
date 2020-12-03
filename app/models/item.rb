@@ -14,6 +14,7 @@ class Item < ApplicationRecord
     validates :name
     validates :information
 
+    #ジャンルの選択が「--」の時は保存できないようにする
     with_options  numericality: { other_than: 1 } do
       validates :status_id
       validates :category_id
@@ -27,6 +28,4 @@ class Item < ApplicationRecord
   end
 
 
-  #ジャンルの選択が「--」の時は保存できないようにする
-  validates :genre_id, numericality: { other_than: 1 }
 end

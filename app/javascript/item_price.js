@@ -8,6 +8,9 @@ function method() {
       const price = priceInput.value;
       addTaxDom.innerHTML = Math.floor(price * 0.1);
       profit.innerHTML = price - Math.floor(price * 0.1);
+    } else {
+      addTaxDom.innerHTML = "";
+      profit.innerHTML = "";
     }
   });
 }

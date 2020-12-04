@@ -1,16 +1,11 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  def index
-    @items = Item.order('created_at DESC')
-  end
+  # def index
+  #   @items = Item.order('created_at DESC')
+  # end
 
   def new
     @item = Item.new
-    @statuses = Status.all
-    @categories = Category.all
-    @shipping_costs = ShippingCost.all
-    @prefectures = Prefecture.all
-    @days_to_ships = DaysToShip.all
   end
 
   def create
@@ -18,11 +13,6 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to url: root_path
     else
-      @statuses = Status.all
-      @categories = Category.all
-      @shipping_costs = ShippingCost.all
-      @prefectures = Prefecture.all
-      @days_to_ships = DaysToShip.all
       render action: :new
     end
   end

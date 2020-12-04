@@ -8,6 +8,7 @@ require("@rails/ujs").start();
 // HTML要素だけを読み込むことで画面遷移を高速化するGem
 require("@rails/activestorage").start();
 require("channels");
+require("../item_price");
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

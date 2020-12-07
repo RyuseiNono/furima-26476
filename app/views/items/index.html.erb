@@ -126,9 +126,9 @@
     <%= link_to '新規投稿商品', "#", class: "subtitle" %>
     <ul class='item-lists'>
 
-      <%# <% if !@items.empty? %>
-          <%# <%= render partial: "item" ,collection:  @items%>
-      <%# <% else %>
+      <% if !@items.empty? %>
+        <%= render partial: "item" ,collection:  @items%>
+      <% else %>
         <%# 商品がない場合のダミー %>
         <li class='list'>
           <%= link_to '#' do %>
@@ -138,7 +138,7 @@
               商品を出品してね！
             </h3>
             <div class='item-price'>
-              <span>99999999円<br>(税込み)</span>
+              <span>99999999円<br>送料込み(出品者負担)</span>
               <div class='star-btn'>
                 <%= image_tag "star.png", class:"star-icon" %>
                 <span class='star-count'>0</span>
@@ -147,7 +147,7 @@
           </div>
           <% end %>
         </li>
-      <%# <% end %>
+      <% end %>
       <%# /商品がない場合のダミー %>
     </ul>
   </div>

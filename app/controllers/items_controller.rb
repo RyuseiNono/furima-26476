@@ -17,10 +17,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-    @item = Item.includes(:user).find(params[:id])
-  end
-
   private
 
   def item_params

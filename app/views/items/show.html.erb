@@ -19,7 +19,7 @@
       <%= "￥ #{@item.price.to_s(:delimited)}" %>
       </span>
       <span class="item-postage">
-        <%= ShippingCost.find(@item.shipping_cost_id)[:name] %>
+        <%= @item.shipping_cost.name %>
       </span>
     </div>
 

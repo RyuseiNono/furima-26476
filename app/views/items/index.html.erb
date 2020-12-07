@@ -126,9 +126,9 @@
     <%= link_to '新規投稿商品', "#", class: "subtitle" %>
     <ul class='item-lists'>
 
-      <%# <% if !@items.empty? %>
-          <%# <%= render partial: "item" ,collection:  @items%>
-      <%# <% else %>
+      <% if !@items.empty? %>
+        <%= render partial: "item" ,collection:  @items%>
+      <% else %>
         <%# 商品がない場合のダミー %>
         <li class='list'>
           <%= link_to '#' do %>
@@ -147,7 +147,7 @@
           </div>
           <% end %>
         </li>
-      <%# <% end %>
+      <% end %>
       <%# /商品がない場合のダミー %>
     </ul>
   </div>

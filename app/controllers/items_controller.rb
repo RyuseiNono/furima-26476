@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:show, :destroy] #順番重要
-  before_action :user_can_edit?, only: [:destroy] #順番重要
+  before_action :set_item, only: [:show, :destroy] # 順番重要
+  before_action :user_can_edit?, only: [:destroy] # 順番重要
   def index
     @items = Item.order('created_at DESC')
   end

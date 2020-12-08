@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :user_can_edit?, only: [:destroy]
+  before_action :set_item, only: [:show, :destroy] #順番重要
+  before_action :user_can_edit?, only: [:destroy] #順番重要
   def index
     @items = Item.order('created_at DESC')
   end
@@ -19,11 +20,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def destroy
-    @item = Item.find(params[:id])
     @item.destroy
     redirect_to action: :index
   end
@@ -35,9 +34,14 @@ class ItemsController < ApplicationController
                                  :days_to_ship_id, :price).merge(user_id: current_user[:id])
   end
 
+  def set_item
+    # binding.pry
+    @item = Item.find(params[:id])
+  end
+
   # 編集権限がない場合、詳細ページへリダイレクトする
   def user_can_edit?
-    item = Item.find(params[:id])
-    redirect_to action: :index unless item.user_id == current_user.id
+    # binding.pry
+    redirect_to action: :index unless @item.user_id == current_user.id
   end
 end

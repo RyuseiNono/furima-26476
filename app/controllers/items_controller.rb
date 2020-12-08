@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:show, :destroy] # 順番重要
-  before_action :user_can_edit?, only: [:destroy] # 順番重要
+  before_action :set_item, only: [:show, :destroy, :edit, :update] # 順番重要
+  before_action :user_can_edit?, only: [:destroy, :edit, :update] # 順番重要
   def index
     @items = Item.order('created_at DESC')
   end
@@ -25,6 +25,17 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     redirect_to action: :index
+  end
+
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to url: item_path(@item.id)
+    else
+      render action: :edit
+    end
   end
 
   private

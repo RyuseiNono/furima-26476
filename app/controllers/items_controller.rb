@@ -35,13 +35,11 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    # binding.pry
     @item = Item.find(params[:id])
   end
 
   # 編集権限がない場合、詳細ページへリダイレクトする
   def user_can_edit?
-    # binding.pry
     redirect_to action: :index unless @item.user_id == current_user.id
   end
 end

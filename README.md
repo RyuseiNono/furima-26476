@@ -48,9 +48,9 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :adress
+- has_one :address
 
-## Adresses テーブル
+## Addresses テーブル
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |

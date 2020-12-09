@@ -5,7 +5,7 @@ class OrderAddress
 
   # バリデーションの処理
   #Orderモデルのバリデーション
-  # validates :token, presence: true #PayJP実装後追加
+  validates :token, presence: true
 
   #Addressモデルのバリデーション
   # 空の投稿を保存できないようにする
@@ -19,7 +19,6 @@ class OrderAddress
   end
 
   def save
-    # binding.pry
     order = Order.create(user_id: user_id, item_id: item_id)
     Address.create(postal_code: postal_code, prefecture_id: prefecture_id, city: city, street_address: street_address, building: building, phone_number: phone_number, order_id: order.id)
   end

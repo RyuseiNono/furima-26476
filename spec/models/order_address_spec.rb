@@ -71,8 +71,14 @@ describe OrderAddress do
         expect(@order_address.errors.full_messages).to include("Phone number can't be blank")
       end
 
-      it 'phone_numberが半角数字でないと登録できない' do
+      it 'phone_numberが全角文字だと登録できない' do
         @order_address.phone_number = '０９０１２３４５６７８９'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include('Phone number is not a number')
+      end
+
+      it 'phone_numberが英数混合だと登録できない' do
+        @order_address.phone_number = '123abc'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone number is not a number')
       end

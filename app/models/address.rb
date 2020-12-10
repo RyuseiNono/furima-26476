@@ -4,5 +4,4 @@ class Address < ApplicationRecord
   # アクティブハッシュのアソシエーションを定義
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
-
 end

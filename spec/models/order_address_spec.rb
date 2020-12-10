@@ -41,6 +41,12 @@ describe OrderAddress do
         expect(@order_address.errors.full_messages).to include("Prefecture can't be blank")
       end
 
+      it 'prefectureが「--」だと登録できない' do
+        @order_address.prefecture_id = '1'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Prefecture must be other than 1")
+      end
+
       it 'cityが空だと登録できない' do
         @order_address.city = nil
         @order_address.valid?
@@ -72,7 +78,7 @@ describe OrderAddress do
       end
 
       it 'phone_numberが11桁以下でないと登録できない' do
-        @order_address.phone_number = 123_456_789_012
+        @order_address.phone_number = '123_456_789_012'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
       end
@@ -81,6 +87,18 @@ describe OrderAddress do
         @order_address.token = nil
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Token can't be blank")
+      end
+
+      it 'user_idが空だと登録できない' do
+        @order_address.user_id = nil
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("User can't be blank")
+      end
+
+      it 'item_idが空だと登録できない' do
+        @order_address.item_id = nil
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Item can't be blank")
       end
     end
   end

@@ -42,7 +42,7 @@ describe OrderAddress do
       end
 
       it 'prefectureが「--」だと登録できない' do
-        @order_address.prefecture_id = '1'
+        @order_address.prefecture_id = 1
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Prefecture must be other than 1")
       end

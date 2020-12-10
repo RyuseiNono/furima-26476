@@ -43,7 +43,7 @@ describe Item do
       end
 
       it 'status_idが「--」だと登録できない' do
-        @item.status_id = '1'
+        @item.status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Status must be other than 1')
       end
@@ -55,7 +55,7 @@ describe Item do
       end
 
       it 'category_idが「--」だと登録できない' do
-        @item.category_id = '1'
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
@@ -67,7 +67,7 @@ describe Item do
       end
 
       it 'shipping_cost_idが「--」だと登録できない' do
-        @item.shipping_cost_id = '1'
+        @item.shipping_cost_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping cost must be other than 1')
       end
@@ -79,7 +79,7 @@ describe Item do
       end
 
       it 'prefecture_idが「--」だと登録できない' do
-        @item.prefecture_id = '1'
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
       end
@@ -91,7 +91,7 @@ describe Item do
       end
 
       it 'days_to_ship_idが「--」だと登録できない' do
-        @item.days_to_ship_id = '1'
+        @item.days_to_ship_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Days to ship must be other than 1')
       end
@@ -121,7 +121,7 @@ describe Item do
       end
 
       it 'priceが整数でないと登録できない' do
-        @item.price = '1000.5'
+        @item.price = 1000.5
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be an integer')
       end

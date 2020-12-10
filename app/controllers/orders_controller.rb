@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item # 順番重要
   before_action :user_can_buy? # 順番重要
-  # before_action :user_can_edit?, only: [:destroy, :edit, :update] # 順番重要
 
   def index
     @order_address = OrderAddress.new

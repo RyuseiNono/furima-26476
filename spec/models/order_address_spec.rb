@@ -24,15 +24,15 @@ describe OrderAddress do
       end
 
       it 'postal_codeにハイフンがないとだと登録できない' do
-        @order_address.postal_code = "1234567"
+        @order_address.postal_code = '1234567'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@order_address.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
 
       it 'postal_codeに「半角数字3桁 - 半角数字4桁」でないとだと登録できない' do
-        @order_address.postal_code = "123-456"
+        @order_address.postal_code = '123-456'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@order_address.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
 
       it 'prefectureが空だと登録できない' do
@@ -66,9 +66,15 @@ describe OrderAddress do
       end
 
       it 'phone_numberが半角数字でないと登録できない' do
-        @order_address.phone_number = "０９０１２３４５６７８９"
+        @order_address.phone_number = '０９０１２３４５６７８９'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number is not a number")
+        expect(@order_address.errors.full_messages).to include('Phone number is not a number')
+      end
+
+      it 'phone_numberが11桁以下でないと登録できない' do
+        @order_address.phone_number = 123_456_789_012
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
       end
 
       it 'tokenが空だと登録できない' do

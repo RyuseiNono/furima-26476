@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to url: root_path
+      redirect_to root_path
     else
       render action: :new
     end
@@ -51,6 +51,6 @@ class ItemsController < ApplicationController
 
   # 編集権限がない場合、詳細ページへリダイレクトする
   def user_can_edit?
-    redirect_to action: :index unless @item.user_id == current_user.id
+    redirect_to root_path unless @item.user_id == current_user.id
   end
 end

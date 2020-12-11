@@ -13,7 +13,6 @@ class OrderAddress
     validates :token
     validates :user_id
     validates :item_id
-    validates :token
   end
 
   def save

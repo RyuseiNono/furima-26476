@@ -1,7 +1,10 @@
 require 'rails_helper'
 describe OrderAddress do
   before do
-    @order_address = FactoryBot.build(:order_address)
+    @item = FactoryBot.create(:item) # 購入された商品
+    @user = FactoryBot.create(:user) # 購入者
+    @order_address = FactoryBot.build(:order_address, item_id: @item.id, user_id: @user.id)
+    sleep(0.05) # 早すぎるとエラーが発生するため
   end
 
   describe '商品購入' do
@@ -44,7 +47,7 @@ describe OrderAddress do
       it 'prefectureが「--」だと登録できない' do
         @order_address.prefecture_id = 1
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@order_address.errors.full_messages).to include('Prefecture must be other than 1')
       end
 
       it 'cityが空だと登録できない' do

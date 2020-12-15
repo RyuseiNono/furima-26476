@@ -13,9 +13,9 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      return redirect_to root_path
     else
-      render action: :new
+      return render action: :new
     end
   end
 
@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to action: :index
+    return redirect_to action: :index
   end
 
   def edit
@@ -32,9 +32,9 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to url: item_path(@item.id)
+      return redirect_to url: item_path(@item.id)
     else
-      render action: :edit
+      return render action: :edit
     end
   end
 
@@ -51,6 +51,6 @@ class ItemsController < ApplicationController
 
   # 編集権限がない場合、詳細ページへリダイレクトする
   def user_can_edit?
-    redirect_to root_path unless @item.user_id == current_user.id
+    return redirect_to root_path unless @item.user_id == current_user.id
   end
 end

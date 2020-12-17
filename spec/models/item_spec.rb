@@ -15,7 +15,7 @@ describe Item do
       it 'nameが空だと登録できない' do
         @item.name = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品名を入力してください")
+        expect(@item.errors.full_messages).to include('商品名を入力してください')
         # expect(@item.errors.full_messages).to include("Name can't be blank")
       end
 
@@ -29,7 +29,7 @@ describe Item do
       it 'informationが空だと登録できない' do
         @item.information = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品の説明を入力してください")
+        expect(@item.errors.full_messages).to include('商品の説明を入力してください')
         # expect(@item.errors.full_messages).to include("Information can't be blank")
       end
 
@@ -43,7 +43,7 @@ describe Item do
       it 'status_idが空だと登録できない' do
         @item.status_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品の状態を入力してください")
+        expect(@item.errors.full_messages).to include('商品の状態を入力してください')
         # expect(@item.errors.full_messages).to include("Status can't be blank")
       end
 
@@ -57,7 +57,7 @@ describe Item do
       it 'category_idが空だと登録できない' do
         @item.category_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("カテゴリーを入力してください")
+        expect(@item.errors.full_messages).to include('カテゴリーを入力してください')
         # expect(@item.errors.full_messages).to include("Category can't be blank")
       end
 
@@ -71,7 +71,7 @@ describe Item do
       it 'shipping_cost_idが空だと登録できない' do
         @item.shipping_cost_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("配送料の負担を入力してください")
+        expect(@item.errors.full_messages).to include('配送料の負担を入力してください')
         # expect(@item.errors.full_messages).to include("Shipping cost can't be blank")
       end
 
@@ -85,7 +85,7 @@ describe Item do
       it 'prefecture_idが空だと登録できない' do
         @item.prefecture_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("都道府県を入力してください")
+        expect(@item.errors.full_messages).to include('都道府県を入力してください')
         # expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
 
@@ -99,7 +99,7 @@ describe Item do
       it 'days_to_ship_idが空だと登録できない' do
         @item.days_to_ship_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("発送までの日数を入力してください")
+        expect(@item.errors.full_messages).to include('発送までの日数を入力してください')
         # expect(@item.errors.full_messages).to include("Days to ship can't be blank")
       end
 
@@ -113,7 +113,7 @@ describe Item do
       it 'priceが空だと登録できない' do
         @item.price = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("価格を入力してください")
+        expect(@item.errors.full_messages).to include('価格を入力してください')
         # expect(@item.errors.full_messages).to include("Price can't be blank")
       end
 
@@ -148,7 +148,7 @@ describe Item do
       it 'imageが空だと登録できない' do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("出品画像を選択してください")
+        expect(@item.errors.full_messages).to include('出品画像を選択してください')
         # expect(@item.errors.full_messages).to include("Image can't be blank")
       end
 

@@ -23,7 +23,7 @@ describe OrderAddress do
       it 'postal_codeが空だと登録できない' do
         @order_address.postal_code = nil
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("郵便番号を入力してください")
+        expect(@order_address.errors.full_messages).to include('郵便番号を入力してください')
         # expect(@order_address.errors.full_messages).to include("Postal code can't be blank")
       end
 
@@ -44,7 +44,7 @@ describe OrderAddress do
       it 'prefectureが空だと登録できない' do
         @order_address.prefecture_id = nil
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("都道府県を入力してください")
+        expect(@order_address.errors.full_messages).to include('都道府県を入力してください')
         # expect(@order_address.errors.full_messages).to include("Prefecture can't be blank")
       end
 
@@ -58,21 +58,21 @@ describe OrderAddress do
       it 'cityが空だと登録できない' do
         @order_address.city = nil
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("市区町村を入力してください")
+        expect(@order_address.errors.full_messages).to include('市区町村を入力してください')
         # expect(@order_address.errors.full_messages).to include("City can't be blank")
       end
 
       it 'street_addressが空だと登録できない' do
         @order_address.street_address = nil
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("番地を入力してください")
+        expect(@order_address.errors.full_messages).to include('番地を入力してください')
         # expect(@order_address.errors.full_messages).to include("Street address can't be blank")
       end
 
       it 'phone_numberが空だと登録できない' do
         @order_address.phone_number = nil
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("電話番号を入力してください")
+        expect(@order_address.errors.full_messages).to include('電話番号を入力してください')
         # expect(@order_address.errors.full_messages).to include("Phone number can't be blank")
       end
 
@@ -100,21 +100,21 @@ describe OrderAddress do
       it 'tokenが空だと登録できない' do
         @order_address.token = nil
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("クレジットカード情報が正しくありません")
+        expect(@order_address.errors.full_messages).to include('クレジットカード情報が正しくありません')
         # expect(@order_address.errors.full_messages).to include("Token can't be blank")
       end
 
       it 'user_idが空だと登録できない' do
         @order_address.user_id = nil
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("ユーザーを入力してください")
+        expect(@order_address.errors.full_messages).to include('ユーザーを入力してください')
         # expect(@order_address.errors.full_messages).to include("User can't be blank")
       end
 
       it 'item_idが空だと登録できない' do
         @order_address.item_id = nil
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("商品を入力してください")
+        expect(@order_address.errors.full_messages).to include('商品を入力してください')
         # expect(@order_address.errors.full_messages).to include("Item can't be blank")
       end
     end

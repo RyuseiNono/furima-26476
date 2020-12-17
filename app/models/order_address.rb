@@ -2,11 +2,11 @@ class OrderAddress
   include ActiveModel::Model
   attr_accessor :token, :postal_code, :prefecture_id, :city, :street_address, :building, :phone_number, :item_id, :user_id
 
-  validates :token, presence: { message: 'クレジットカード情報が正しくありません'}
+  validates :token, presence: { message: 'クレジットカード情報が正しくありません' }
   # 空の投稿を保存できないようにする
   with_options presence: true do
-    validates :postal_code,     format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "が間違えています. ハイフンを入れてください" }
-    validates :prefecture_id,   numericality: { other_than: 1 , message: 'を選択してください'}
+    validates :postal_code,     format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'が間違えています. ハイフンを入れてください' }
+    validates :prefecture_id,   numericality: { other_than: 1, message: 'を選択してください' }
     validates :city
     validates :street_address
     # validates :building #空でも可

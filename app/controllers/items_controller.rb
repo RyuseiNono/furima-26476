@@ -13,18 +13,20 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      return redirect_to root_path
+      redirect_to root_path
     else
-      return render action: :new
+      render action: :new
     end
   end
 
   def show
+    @messages = Message.where(item_id: @item.id)
+    @message = Message.new
   end
 
   def destroy
     @item.destroy
-    return redirect_to action: :index
+    redirect_to action: :index
   end
 
   def edit
@@ -32,9 +34,9 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      return redirect_to url: item_path(@item.id)
+      redirect_to url: item_path(@item.id)
     else
-      return render action: :edit
+      render action: :edit
     end
   end
 
